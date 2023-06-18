@@ -1,5 +1,10 @@
 package tn.csf.market.repository;
 
-public interface CategoryRepository {
+import org.springframework.data.repository.CrudRepository;
 
-}
+import tn.csf.market.model.Category;
+//repository that extends CrudRepository  
+
+public interface CategoryRepository extends CrudRepository<Category, Integer>  
+{  
+}  
