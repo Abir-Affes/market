@@ -2,6 +2,7 @@ package tn.csf.market.controller;
 
 import java.util.List;  
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;  
 import org.springframework.web.bind.annotation.GetMapping;  
 import org.springframework.web.bind.annotation.PathVariable;  
@@ -10,52 +11,52 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import tn.csf.market.model.Category;
-import tn.csf.market.service.CategoryService;
+import tn.csf.market.model.Article;
+import tn.csf.market.service.ArticleService;
 
 //mark class as Controller  
 @RestController 
 //@CrossOrigin(origins = "*")
 
-public class CategoryController {
+public class ArticleController {
 
 	@Autowired  
-	CategoryService categoryService;  
+	ArticleService articleService;  
 
 	//creating a get mapping that retrieves all the Article detail from the database   
-	@GetMapping("/category")
-	private List<Category> getAllCategories()   
+	@GetMapping("/article")
+	private List<Article> getAllArticles()   
 	{  
-		return categoryService.getAllCategories();  
+		return articleService.getAllArticles();  
 	}  
 
 	//creating a get mapping that retrieves the detail of a specific article  
-	@GetMapping("/category/{id}")  
-	private Category getCategory(@PathVariable("id") int id)   
+	@GetMapping("/article/{id}")  
+	private Article getArticle(@PathVariable("id") int id)   
 	{  
-		return categoryService.getCategoriesById(id);  
+		return articleService.getArticlesById(id);  
 	}  
 
 	//creating a delete mapping that deletes a specified article  
-	@DeleteMapping("/category/{id}")  
-	private void deleteCategory(@PathVariable("id") int id)   
+	@DeleteMapping("/article/{id}")  
+	private void deleteArticle(@PathVariable("id") int id)   
 	{  
-		categoryService.delete(id);  
+		articleService.delete(id);  
 	} 
 
 	//create new article
-	@PostMapping("/category")  
-	private int saveCategory(@RequestBody Category c)   
+	@PostMapping("/article")  
+	private int saveArticle(@RequestBody Article a)   
 	{  
-		categoryService.saveOrUpdate(c);  
-		return c.getId();  
+		articleService.saveOrUpdate(a);  
+		return a.getId();  
 	} 
 
 	//creating put mapping that updates the article detail
-	@PutMapping("/category")  
-	private Category update(@RequestBody  Category c)   
+	@PutMapping("/article")  
+	private Article update(@RequestBody  Article a)   
 	{  
-		categoryService.saveOrUpdate(c);  
-		return c;  
+		articleService.saveOrUpdate(a);  
+		return a;  
 	}  
 }

@@ -15,34 +15,34 @@ import tn.csf.market.repository.CategoryRepository;
 public class CategoryService {
 
 	@Autowired  
-	CategoryRepository cR;  
+	CategoryRepository categoryRepository;  
 	//getting all books record by using the method findaAll() of CrudRepository  
 
 	//getting all books record by using the method findaAll() of CrudRepository  
 	public List<Category> getAllCategories()   
 	{  
 		List<Category> categories = new ArrayList<Category>();  
-		cR.findAll().forEach(c -> categories.add(c));  
+		categoryRepository.findAll().forEach(c -> categories.add(c));  
 		return categories;  	
 	}  
 
 	//getting a specific record by using the method findById() of CrudRepository  
 	public Category getCategoriesById(int id)   
 	{  
-		return cR.findById(id).get();  
+		return categoryRepository.findById(id).get();  
 	}  
 
 
 	//saving a specific record by using the method save() of CrudRepository  
 	public void saveOrUpdate(Category c)   
 	{  
-		cR.save(c);  
+		categoryRepository.save(c);  
 	} 
 
 	//deleting a specific record by using the method deleteById() of CrudRepository  
 	public void delete(int id)   
 	{  
-		cR.deleteById(id);  
+		categoryRepository.deleteById(id);  
 	} 
 
 }
