@@ -16,7 +16,7 @@ import tn.csf.market.service.ArticleService;
 
 //mark class as Controller  
 @RestController 
-//@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*")
 
 public class ArticleController {
 
